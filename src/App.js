@@ -5,7 +5,8 @@ import router from './Router/Routes/Routes';
 
 function App() {
   return (
-    <div className='max-w-[1440px] mx-auto'>
+    // className='max-w-[1440px] mx-auto'
+    <div >
       <RouterProvider router={router}></RouterProvider>
       <Toaster
         position="top-center"

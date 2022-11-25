@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Navbar = () => {
 
+    const { user, logOut } = useContext(AuthContext);
 
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                toast.success('Logged Out Successfully')
+             })
+            
+            .catch(err => console.error(err))
+    }
 
 
 
@@ -12,19 +23,19 @@ const Navbar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to="/appointment">Appointment</Link></li>
         <li><Link to='/about'>About</Link></li>
-        {/* {
+        {
             user?.uid ?
                 <>
                     <li><Link to='/dashboard'>Dashboard</Link></li>
-                    <li><button onClick={handleLogOut}>Sign Out</button></li>
+                    
                 </>
                 :
                 <li><Link to='/login'>Login</Link></li>
-        } */}
+        }
 
     </React.Fragment>
     return (
-        <div className="navbar bg-primary">
+        <div className="navbar h-20 bg-primary">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -44,11 +55,15 @@ const Navbar = () => {
 
             <div className="navbar-end">
                 <div className="dropdown dropdown-end">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img src="https://placeimg.com/80/80/people" alt='' />
-                        </div>
-                    </label>
+                    {
+                        user?.uid &&
+                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                                {user?.photoURL && <img src={user.photoURL} alt="" />
+                                }
+                            </div>
+                        </label>
+                    }
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li>
                             <Link className="justify-between">
@@ -57,7 +72,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li><Link>Settings</Link></li>
-                        <li><Link>Logout</Link></li>
+                        <li onClick={handleLogOut}><button>Logout</button></li>
                     </ul>
                 </div>
             </div>
