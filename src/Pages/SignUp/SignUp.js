@@ -32,7 +32,8 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        saveUser(data.name, data.email)
+                        // saveUser(data.name, data.email)
+                        navigate('/')
                     })
                     .catch(err => console.error(err))
             })
@@ -42,21 +43,21 @@ const SignUp = () => {
             })
     }
 
-    const saveUser = (name, email) => {
-        const user = { name, email };
-        fetch('http://localhost:5000/users', {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        })
-            .then(res => res.json())
-            .then(data => {
+    // const saveUser = (name, email) => {
+    //     const user = { name, email };
+    //     fetch('http://localhost:5000/users', {
+    //         method: "POST",
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(user)
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
 
-                // setCreatedUserEmail(email);
-            })
-    }
+    //             // setCreatedUserEmail(email);
+    //         })
+    // }
 
 
 
@@ -95,17 +96,17 @@ const SignUp = () => {
                     <div className="form-control w-full">
                         <label className="label"><p className="label-text">Select Image</p></label>
                         <input type="file" className=" w-full max-w-xs" accept='image/*' required
-                            {...register("name",
+                            {...register("img",
                                 {
-                                    required: "Name is Required"
+                                    required: "Image is Required"
                                 }
                             )}
                         />
                         {
-                            errors.name &&
+                            errors.img &&
                             <div className='flex mt-3'>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6 text-error" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                                <span className='text-error'>{errors.name?.message}</span>
+                                <span className='text-error'>{errors.img?.message}</span>
                             </div>
                         }
                     </div>

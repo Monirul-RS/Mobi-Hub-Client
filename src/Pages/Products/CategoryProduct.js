@@ -23,6 +23,7 @@ const CategoryProduct = () => {
                 selectedProduct &&
                 <BookingModal
                     selectedProduct={selectedProduct}
+                    setSelectedProduct={setSelectedProduct}
                 ></BookingModal>}
 
         </div>
