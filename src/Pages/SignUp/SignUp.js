@@ -8,7 +8,8 @@ import { AuthContext } from '../../contexts/AuthProvider';
 const SignUp = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser, updateUser, signInWithGoogle } = useContext(AuthContext);
+    const { createUser, updateUser, signInWithGoogle, loading,
+        setLoading } = useContext(AuthContext);
     const [signupError, setSignupError] = useState('');
     // const [createdUserEmail, setCreatedUserEmail] = useState('')
     // const [token] = useToken(createdUserEmail)
@@ -92,6 +93,24 @@ const SignUp = () => {
                         }
                     </div>
                     <div className="form-control w-full">
+                        <label className="label"><p className="label-text">Select Image</p></label>
+                        <input type="file" className=" w-full max-w-xs" accept='image/*' required
+                            {...register("name",
+                                {
+                                    required: "Name is Required"
+                                }
+                            )}
+                        />
+                        {
+                            errors.name &&
+                            <div className='flex mt-3'>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6 text-error" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <span className='text-error'>{errors.name?.message}</span>
+                            </div>
+                        }
+                    </div>
+
+                    <div className="form-control w-full">
                         <label className="label"><p className="label-text">Email</p></label>
                         <input type="email"
                             {...register("email",
@@ -99,7 +118,7 @@ const SignUp = () => {
                                     required: "Email Address is required"
                                 }
                             )}
-                            className="input input-bordered w-full " />
+                            className="input input-bordered w-full " required />
                         {
                             errors.email &&
                             <div className='flex mt-3'>
@@ -118,7 +137,7 @@ const SignUp = () => {
                                     pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: 'Password must have uppercase number & special character!' }
                                 }
                             )}
-                            className="input input-bordered w-full" />
+                            className="input input-bordered w-full" required />
                         {
                             errors.password &&
                             <div className='flex mt-3'>

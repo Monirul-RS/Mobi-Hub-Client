@@ -1,21 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import BookingModal from './BookingModal/BookingModal';
+
 import ProductsCard from './ProductsCard';
 
 const CategoryProduct = () => {
-    const {name, products} = useLoaderData();
-    console.log(products);
-    // const {products_name} = products;
-    // console.log(products.products_name);
+    const { name, products } = useLoaderData();
+    const [selectedProduct, setSelectedProduct] = useState(null);
+
     return (
         <div>
-            <h2>Name: {name}</h2>
+            <div>
+                {
+                    products.map(product => <ProductsCard
+                        key={products._id}
+                        product={product}
+                        setSelectedProduct={setSelectedProduct}
+                    ></ProductsCard>)
+                }
+            </div>
             {
-                products.map(product => <ProductsCard
-                    key={products._id}
-                    product={product}
-                ></ProductsCard>)
-            }
+                selectedProduct &&
+                <BookingModal
+                    selectedProduct={selectedProduct}
+                ></BookingModal>}
+
         </div>
     );
 };

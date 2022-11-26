@@ -1,35 +1,30 @@
 import React from 'react';
 
-const ProductsCard = ({ product }) => {
+const ProductsCard = ({ product, setSelectedProduct }) => {
     const { products_name, img, location, rePrice, orPrice, useTime, sallerName, postedTime, storage } = product;
 
-    // "products_name": "Xiaomi Redmi Note 11 Pro Plus 5G",
-    //             "img": "https://i.ibb.co/wd76kQG/Redmi-note-11-pro-plus.jpg",
-    //             "location": "Tahirpur, Dhaka",
-    //             "rePrice": "40,000",
-    //             "orPrice": "68,000",
-    //             "useTime": "9 months",
-    //             "sallerName": "Rakin",
-    //             "postedTime": "",
-    //             "storage": "64GB"
     return (
-        <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col lg:flex-row">
-                <div className='lg:w-1/2 lg:mr-8'>
-                    <img src={img} alt='' className="lg:max-w-sm rounded-lg shadow-2xl" />
-                </div>
-                <div className='lg:w-1/2'>
-                    <h1 className="text-5xl font-bold">{products_name}</h1>
-                    <p className="py-6">{rePrice}</p>
-                    <p className="py-6">{orPrice}</p>
-                    <p className="py-6">{useTime}</p>
-                    <p className="py-6">{sallerName}</p>
-                    <p className="py-6">{postedTime}</p>
-                    <p className="py-6">{storage}</p>
-                    <button className="btn btn-primary">Get Started</button>
+        <div className="card lg:card-side my-16 w-1/2 mx-auto bg-base-100 shadow-xl">
+            <figure><img src={img} className='w-96 h-96' alt="Album" /></figure>
+            <div className="card-body">
+                <h2 className="card-title text-4xl">{products_name}!</h2>
+                <p className="">Resale Price: {rePrice}</p>
+                    <p className="">Original Price: {orPrice}</p>
+                    <p className="">Used for: {useTime}</p>
+                    <p className="">Saller: {sallerName}</p>
+                    <p className="">{postedTime}</p>
+                    <p className="">Storage: {storage}</p>
+                <div className="card-actions justify-end">
+                    <label 
+                    onClick={() =>setSelectedProduct(product)}
+                    htmlFor="booking-modal" 
+                    className="btn btn-primary"
+                    >Book Now</label>
+
                 </div>
             </div>
         </div>
+  
     );
 };
 
