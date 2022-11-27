@@ -6,7 +6,7 @@ const Category = ({ category }) => {
     const { _id, name, img } = category;
     return (
         <Link to={`/category/${_id}`}>
-            <div className="card w-96 my- bg-base-100 shadow-2xl">
+            <div className="card my- bg-base-100 shadow-2xl">
                 <figure className="px-10 pt-10">
                     <img src={img} alt="Shoes" className="rounded-xl" />
                 </figure>

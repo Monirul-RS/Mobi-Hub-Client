@@ -23,7 +23,7 @@ const SignUp = () => {
     const handleSignUp = data => {
         // console.log(data);
         setSignupError('');
-        createUser(data.email, data.password)
+        createUser(data.email, data.password, data.role)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -33,7 +33,7 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        saveUser(data.name, data.email)
+                        saveUser(data.name, data.email, data.role)
 
                     })
                     .catch(err => console.error(err))
@@ -44,8 +44,8 @@ const SignUp = () => {
             })
     }
 
-    const saveUser = (name, email) => {
-        const user = { name, email };
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role };
         fetch('http://localhost:5000/users', {
             method: "POST",
             headers: {
@@ -59,7 +59,7 @@ const SignUp = () => {
             })
     }
 
-  
+
     // navigate('/')
 
     const handleGoogleSignIn = () => {
@@ -111,6 +111,15 @@ const SignUp = () => {
                             </div>
                         }
                     </div>
+                    <select
+                        {...register("role",
+                            {
+                                required: "Role is Required"
+                            }
+                        )} className="select select-bordered w-full max-w-xs">
+                        <option>buyer</option>
+                        <option>seller</option>
+                    </select>
 
                     <div className="form-control w-full">
                         <label className="label"><p className="label-text">Email</p></label>

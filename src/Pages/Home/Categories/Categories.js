@@ -23,7 +23,7 @@ const Categories = () => {
                 <h2 className='text-4xl font-bold'>Brands You Look Out For</h2>
 
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-3/4 mx-auto'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-3/4 mx-auto  mb-8'>
                 {
                     categories.map(category => <Category
                         key={category._id}
