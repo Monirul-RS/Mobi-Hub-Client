@@ -9,8 +9,9 @@ const CategoryProduct = () => {
     const [selectedProduct, setSelectedProduct] = useState(null);
 
     return (
-        <div>
-            <div>
+        <div className='my-32'>
+            <h2 className='text-4xl font-bold text-center my-16'>{name}</h2>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-3/4 mx-auto'>
                 {
                     products.map(product => <ProductsCard
                         key={products._id}
