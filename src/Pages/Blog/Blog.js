@@ -1,9 +1,10 @@
 import React from 'react';
+import useTitle from '../../hooks/useTitle';
 // import useTitle from '../../hooks/useTitle';
 
 const Blog = () => {
 
-    // useTitle('Blog');
+    useTitle('Blog');
 
     return (
         <div>
@@ -19,52 +20,73 @@ const Blog = () => {
             </div>
             <h1 className='text-center text-4xl font-bold mt-28 underline'>QNA</h1>
             <div className='grid md:grid-cols-2 my-8'>
-                <div className="border-2 shadow-xl m-8">
+                <div className="border-2 shadow-xl m-8 rounded-2xl">
                     <div className="rounded-xl ">
                         <div className="p-16">
-                            <h1 className="text-2xl font-bold">1.What is Difference between SQL and NoSQL?</h1>
+                            <h1 className="text-2xl font-bold">1.What is Difference ways to manage a state in a React Application?</h1>
                             <p className="py-6"> <span className='text-xl text-blue-800'>Ans: </span> <br />
-                                <span className='text-xl font-semibold underline'>SQL:</span> Structured Query language (SQL) pronounced as “S-Q-L” or sometimes as “See-Quel” is the standard language for dealing with Relational Databases. A relational database defines relationships in the form of tables.
-                                SQL programming can be effectively used to insert, search, update, delete database records. <br />
-                                <span className='text-xl font-semibold underline'>NOSQL: </span>
-                                NoSQL is a non-relational DMS, that does not require a fixed schema, avoids joins, and is easy to scale. NoSQL database is used for distributed data stores with humongous data storage needs. NoSQL is used for Big data and real-time web apps. For example companies like Twitter, Facebook, Google that collect terabytes of user data every single day.
-
-                                NoSQL database stands for “Not Only SQL” or “Not SQL.” Though a better term would NoREL NoSQL caught on. Carl Strozz introduced the NoSQL concept in 1998.
+                                When we talk about state in our applications, it’s important to be clear about what types of state actually matter.
+                                <br />
+                                There are four main types of state you need to properly manage in your React apps: <br />
+                                <ul>
+                                    <li>1. Local state</li>
+                                    <li>2. Global state</li>
+                                    <li>3. Server state</li>
+                                    <li>4. URL state</li>
+                                </ul>
                             </p>
 
                         </div>
                     </div>
                 </div>
-                <div className="border-2 shadow-xl m-8">
+                <div className="border-2 shadow-xl m-8 rounded-2xl">
                     <div className=" ">
                         <div className="p-16">
-                            <h1 className="text-2xl font-bold">2. WHat is JWT and how does it work?</h1>
-                            <p className="py-6"><span className='text-xl text-blue-800'>Ans: </span> <br />  JWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.
+                            <h1 className="text-2xl font-bold">2. How does prototypical inheritance work?</h1>
+                            <p className="py-6"><span className='text-xl text-blue-800'>Ans: </span> <br /> The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object. Traditionally, in order to get and set the [[Prototype]] of an object, we use Object. getPrototypeOf and Object.
                                 <br />
-                                JWTs differ from other web tokens in that they contain a set of claims. Claims are used to transmit information between two parties. What these claims are depends on the use case at hand. For example, a claim may assert who issued the token, how long it is valid for, or what permissions the client has been granted.
+                                In programming, we often want to take something and extend it.
 
-                                A JWT is a string made up of three parts, separated by dots (.), and serialized using base64. In the most common serialization format, compact serialization, the JWT looks something like this: xxxxx.yyyyy.zzzzz.</p>
+                                For instance, we have a user object with its properties and methods, and want to make admin and guest as slightly modified variants of it. We’d like to reuse what we have in user, not copy/reimplement its methods, just build a new object on top of it.
+
+                                Prototypal inheritance is a language feature that helps in that.
+                            </p>
 
                         </div>
                     </div>
                 </div>
-                <div className="border-2 shadow-xl m-8 ">
+                <div className="border-2 shadow-xl m-8 rounded-2xl ">
                     <div className="rounded-xl ">
                         <div className="p-16">
-                            <h1 className="text-2xl font-bold">3. What is the difference between Javascript and NodeJS?</h1>
-                            <p className="py-6"><span className='text-xl text-blue-800'>Ans: </span> <br /> For executing JavaScript on the server, Node.js is a bridge, open-source Js runtime environment. JavaScript code can now execute outside of the browser, thanks to Node.js. Node.js has many components and is primarily used for web development. It may run on various operating systems, including Windows, Linux, and Mac OS. It provides a cross-platform runtime environment for developing highly scalable server-side JavaScript applications with event-driven, non-blocking (asynchronous) I/O.
+                            <h1 className="text-2xl font-bold">3. What is a unit test? Why should we write unit tests?</h1>
+                            <p className="py-6"><span className='text-xl text-blue-800'>Ans: </span> <br /> The main objective of unit testing is to isolate written code to test and determine if it works as intended.
+                                Unit testing is an important step in the development process, because if done correctly, it can help detect early flaws in code which may be more difficult to find in later testing stages.
                                 <br />
-                                Javascript is a simple object-oriented programming language for building interactive HTML pages. JavaScript is also commonly used in the development of games and mobile applications. The program can only be executed and run in an internet browser because it is interpreted as scripting. To run and execute the code outside the browser, we can utilize Node.js.</p>
+                                A unit test typically comprises of three stages: plan, cases and scripting and the unit test itself. In the first step, the unit test is prepared and reviewed. The next step is for the test cases and scripts to be made, then the code is tested.
+                                Test-driven development requires that developers first write failing unit tests. Then they write code and refactor the application until the test passes. TDD typically results in an explicit and predictable code base.</p>
                         </div>
                     </div>
                 </div>
-                <div className="border-2 shadow-xl m-8">
+                <div className="border-2 shadow-xl m-8 rounded-2xl">
                     <div className=" ">
                         <div className="p-16">
-                            <h1 className="text-2xl font-bold">4. How does NodeJs handle multiple requests at the same time?</h1>
-                            <p className="py-6"> <span className='text-xl text-blue-800'>Ans: </span> <br />NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an infinite loop that receives requests and processes them. EventLoop is the listener for the EventQueue.
+                            <h1 className="text-2xl font-bold">4. What is the diffrence between React vs Angular vs Vue?</h1>
+                            <p className="py-6"> <span className='text-xl text-blue-800'>Ans: </span> <br />
+                                <span className='text-accent font-semibold'>React JS:</span> This open-source Javascript library has become quite the rage for developing interactive web and mobile apps since Facebook launched it in 2013.
+                                There are primarily three reasons which have made the React library a developer darling -
+                                Code Reusability- it allows developers to reuse blocks of code for a simple function
+                                <br />
+                                <span className='text-accent font-semibold'>Angular Js:</span> This open-source Javascript library has become quite the rage for developing interactive web and mobile apps since Facebook launched it in 2013.
+                                There are primarily three reasons which have made the React library a developer darling -
+                                Code Reusability- it allows developers to reuse blocks of code for a simple function
+                                <br />
+                                <span className='text-accent font-semibold'>Vue JS:</span> This open-source Javascript library has become quite the rage for developing interactive web and mobile apps since Facebook launched it in 2013.
+                                There are primarily three reasons which have made the React library a developer darling -
+                                Code Reusability- it allows developers to reuse blocks of code for a simple function
+                                <br />
 
-                                If NodeJS can process the request without I/O blocking then the event loop would itself process the request and sends the response back to the client by itself. But, it is possible to process multiple requests parallelly using the NodeJS cluster module or worker_threads module.A single instance of Node.js runs in a single thread. If you have a multi-core system then you can utilize every core. Sometimes developer wants to launch a cluster of NodeJS process to take advantage of the multi-core system.</p>
+
+                            </p>
 
                         </div>
                     </div>
