@@ -32,8 +32,8 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        // saveUser(data.name, data.email)
-                        navigate('/')
+                        saveUser(data.name, data.email)
+
                     })
                     .catch(err => console.error(err))
             })
@@ -43,21 +43,22 @@ const SignUp = () => {
             })
     }
 
-    // const saveUser = (name, email) => {
-    //     const user = { name, email };
-    //     fetch('http://localhost:5000/users', {
-    //         method: "POST",
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(user)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-
-    //             // setCreatedUserEmail(email);
-    //         })
-    // }
+    const saveUser = (name, email) => {
+        const user = { name, email };
+        fetch('http://localhost:5000/users', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                navigate('/')
+                // setCreatedUserEmail(email);
+            })
+    }
 
 
 
