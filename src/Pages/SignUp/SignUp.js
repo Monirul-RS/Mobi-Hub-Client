@@ -111,7 +111,7 @@ const SignUp = () => {
                                 </div>
                             }
                         </div>
-                        <select
+                        {/* <select
                             {...register("role",
                                 {
                                     required: "Role is Required"
@@ -119,7 +119,7 @@ const SignUp = () => {
                             )} className="select select-bordered w-full max-w-xs">
                             <option>buyer</option>
                             <option>seller</option>
-                        </select>
+                        </select> */}
 
                         <div className="form-control w-full">
                             <label className="label"><p className="label-text">Email</p></label>
