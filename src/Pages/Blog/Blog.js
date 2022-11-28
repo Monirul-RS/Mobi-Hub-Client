@@ -1,6 +1,7 @@
 import React from 'react';
 import useTitle from '../../hooks/useTitle';
-// import useTitle from '../../hooks/useTitle';
+import tech from '../../assets/technology.jpg'
+
 
 const Blog = () => {
 
@@ -8,7 +9,7 @@ const Blog = () => {
 
     return (
         <div>
-            <div className="hero h-96" style={{ backgroundImage: `url("https://i.ibb.co/7Vxr0qz/unstoppable-young-muscular-caucasian-athlete-practicing-squats-gym-with-weight-male-model-doing-stre.jpg")` }}>
+            <div className="hero h-96" style={{ backgroundImage: `url(${tech})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-neutral-content pt-32 pb-10 mb-2">
                     <div className="max-w-md">

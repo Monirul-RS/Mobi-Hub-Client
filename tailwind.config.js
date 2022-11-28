@@ -16,6 +16,19 @@ module.exports = {
           "error": "#F87272",
         },
       },
+      {
+        dark: {
+          primary: '#191D24',
+          secondary: '#0FCFEC',
+          accent: "#3A4256",
+          neutral: "#191D24",
+          "base-100": "#1F2937",
+          info: "#fde047",
+          success: "#1BBB70",
+          warning: "#fcfafa",
+          error: "#ffffff",
+        },
+      },
     ],
   },
   theme: {

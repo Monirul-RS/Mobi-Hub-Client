@@ -4,6 +4,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import toast from 'react-hot-toast';
 import useToken from '../../hooks/useToken';
+import img2 from '../../assets/img2.jpg'
+
 
 const Login = () => {
 
@@ -48,9 +50,10 @@ const Login = () => {
             .catch(err => console.error(err))
     }
     return (
-        <div className='h-[800px] flex justify-center items-center'>
+        
+        <div className='h-[800px]  flex justify-center items-center'>
             <div className='w-96 p-7 border rounded-2xl shadow-xl'>
-                <p className='text-xl text-center font-semibold mb-6 text-accent '>Login</p>
+            <h1 className="text-4xl text-center font-bold mb-6">Login now!</h1>
                 <form onSubmit={handleSubmit(handleLogin)}>
                     <div className="form-control w-full">
                         <label className="label"><p className="label-text">Email</p></label>
@@ -99,7 +102,7 @@ const Login = () => {
                         }
                     </div>
                 </form>
-                <p className='text-center'><small>New to Doctor's Portal? <Link className='text-accent' to='/signup'>Create new account</Link></small></p>
+                <p className='text-center'><small>New to Doctor's Portal? <Link className='text-secondary' to='/signup'>Create new account</Link></small></p>
                 <div className="divider">OR</div>
                 <button onClick={handleGoogleSignIn} className='btn btn-outline w-full'>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="w-5 h-5 fill-current">
@@ -108,6 +111,7 @@ const Login = () => {
                     <p className='ml-2'>CONTINUE WITH GOOGLE</p></button>
             </div>
         </div>
+
     );
 };
 
